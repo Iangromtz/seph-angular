@@ -100,6 +100,16 @@
             [disabled]="reportSaved && !isEditing"
             [(ngModel)]="matriculaTotal" />
 
+ <p
+            class="validation-message"
+            *ngIf="!genderTotalMatches">
+
+            La suma de hombres y mujeres debe coincidir
+            con la matrícula total.
+
+           </p>
+
+
           <label for="matriculaHombres">
             Matrícula Total Hombres
           </label>
@@ -158,6 +168,15 @@
             min="0"
             [disabled]="reportSaved && !isEditing"
             [(ngModel)]="matriculaPostgrado" />
+            
+               <p
+        class="validation-message"
+        *ngIf="!educationLevelTotalMatches">
+
+        La suma de TSU, licenciatura y posgrado
+        debe coincidir con la matrícula total.
+
+        </p>
 
         </div>
 
