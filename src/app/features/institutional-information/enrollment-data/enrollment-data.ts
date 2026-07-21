@@ -77,6 +77,48 @@ saveMessageType: 'success' | 'error' = 'success';
   matriculaTsu: number | null = null;
   matriculaLicenciatura: number | null = null;
   matriculaPostgrado: number | null = null;
+/*
+ * Indica si la suma por sexo coincide
+ * con la matrícula total capturada.
+ */
+get genderTotalMatches(): boolean {
+  if (
+    this.matriculaTotal === null ||
+    this.matriculaHombres === null ||
+    this.matriculaMujeres === null
+  ) {
+    return true;
+  }
+
+  return (
+    this.matriculaHombres +
+    this.matriculaMujeres ===
+    this.matriculaTotal
+  );
+}
+
+/*
+ * Indica si la suma por nivel educativo
+ * coincide con la matrícula total capturada.
+ */
+get educationLevelTotalMatches(): boolean {
+  if (
+    this.matriculaTotal === null ||
+    this.matriculaTsu === null ||
+    this.matriculaLicenciatura === null ||
+    this.matriculaPostgrado === null
+  ) {
+    return true;
+  }
+
+  return (
+    this.matriculaTsu +
+    this.matriculaLicenciatura +
+    this.matriculaPostgrado ===
+    this.matriculaTotal
+  );
+}
+
 
   // Datos capturados en la segunda página.
   tasaDesercion: number | null = null;
